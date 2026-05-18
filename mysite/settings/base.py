@@ -192,7 +192,7 @@ WAGTAILSEARCH_BACKENDS = {
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-WAGTAILADMIN_BASE_URL = env.str("WAGTAILADMIN_BASE_URL", "http://127.0.0.1:8000")
+WAGTAILADMIN_BASE_URL = env.str("WAGTAILADMIN_BASE_URL", "https://asy123.pythonanywhere.com")
 
 # Tags
 
@@ -202,7 +202,7 @@ TAGGIT_CASE_INSENSITIVE = True
 # See https://docs.djangoproject.com/en/4.1/ref/models/fields/#bigautofield
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-CSRF_TRUSTED_ORIGINS = ["https://zx33.co.uk", "https://www.zx33.co.uk"]
+CSRF_TRUSTED_ORIGINS = ["https://zx33.co.uk", "https://www.zx33.co.uk", "https://asy123.pythonanywhere.com"]
 DATA_UPLOAD_MAX_NUMBER_FIELDS = None
 
 # Logging
