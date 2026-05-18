@@ -3,7 +3,11 @@ set -e
 
 cd ~
 echo "=== 1/8: Clone repo ==="
-git clone https://github.com/elassyex/gajounal.git
+if [ -d gajounal ]; then
+  cd gajounal && git pull && cd ~
+else
+  git clone https://github.com/elassyex/gajounal.git
+fi
 
 echo "=== 2/8: Create virtualenv ==="
 python3.12 -m venv /home/asy123/.virtualenvs/gajounal
