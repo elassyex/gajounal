@@ -304,6 +304,24 @@ class PropertyPageGalleryImage(Orderable, models.Model):
 
 
 class PropertyIndexPage(CoderedArticleIndexPage):
+
+
+class CupcakesIndexPage(CoderedWebPage):
+    """Placeholder for the original Cupcakes index page type."""
+    class Meta:
+        verbose_name = "Cupcakes Index Page"
+
+    # Allow only CupcakesPage as a child.
+    subpage_types = ["website.CupcakesPage"]
+    template = "coderedcms/pages/web_page.html"
+
+
+class CupcakesPage(CoderedWebPage):
+    """Placeholder for individual cupcake pages."""
+    class Meta:
+        verbose_name = "Cupcakes Page"
+
+    template = "coderedcms/pages/web_page.html"
     class Meta:
         verbose_name = "Property Landing Page"
 
