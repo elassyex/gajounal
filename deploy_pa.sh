@@ -37,7 +37,10 @@ EOF
 echo "=== 5/8: Migrate ==="
 python manage.py migrate
 
-echo "=== 6/8: Load demo data ==="
+# Clear any existing data (fresh start)
+python manage.py flush --noinput
+
+=== 6/8: Load demo data ===
 python manage.py loaddata database.json
 
 echo "=== 7/8: Collect static ==="
