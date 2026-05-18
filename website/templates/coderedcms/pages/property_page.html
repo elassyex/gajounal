@@ -1,0 +1,547 @@
+{% extends "coderedcms/pages/web_page.html" %}
+{% load wagtailcore_tags wagtailimages_tags coderedcms_tags %}
+
+{% block content_pre_body %}
+{% endblock %}
+
+{% block content_body %}
+<div class="container py-4 estate-detail">
+  <div class="row g-4">
+    {# Left column: Property info #}
+    <div class="col-lg-8">
+      {# Main property display card #}
+      <div class="card border-0 rounded-3 shadow-sm overflow-hidden mb-4 estate-detail-hero">
+        <div class="position-relative" style="aspect-ratio: 16/10; background: #e9ecef;">
+          {% if page.thumbnail and "yacht" not in page.thumbnail.title|lower and "yacht" not in page.thumbnail.file.name|lower %}
+            {% image page.thumbnail fill-800x450 as thumb %}
+            <img class="w-100 h-100 object-fit-cover" src="{{ thumb.url }}" alt="{{ page.title }}">
+          {% else %}
+            <img class="w-100 h-100 object-fit-cover" src="/media/original_images/large_4670020.jpg" alt="Property">
+          {% endif %}
+          <div class="position-absolute bottom-0 start-0 end-0 p-3 p-md-4 text-white" style="background: linear-gradient(transparent, rgba(0,0,0,0.7));">
+            <p class="small text-white-50 mb-1">Properties for Sale</p>
+            <h1 class="h2 fw-bold mb-2">{{ page.year }}{% if page.year %} {% endif %}{{ page.title }}</h1>
+            <div class="d-flex align-items-center gap-2 flex-wrap">
+              <span class="rounded-pill px-3 py-1 text-white" style="background: #5bc0de; font-size: 0.9rem;">
+                {{ page.property_type|default:"Property" }}
+              </span>
+              {% if page.price %}
+                <span class="fw-bold fs-5">£{{ page.price|floatformat:0 }}</span>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {# Property specifications grid (9 cards) #}
+      <div class="row g-3 mb-4">
+        <div class="col-6 col-md-4">
+          <div class="card border-0 rounded-3 shadow-sm h-100 estate-spec-card">
+            <div class="card-body text-center py-3">
+              <span class="text-primary"><i class="fas fa-bed fa-lg"></i></span>
+              <div class="small text-primary fw-semibold mt-1">Bedrooms</div>
+              <div class="fw-semibold">{% if page.bedrooms %}{{ page.bedrooms }}{% else %}-{% endif %}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="card border-0 rounded-3 shadow-sm h-100 estate-spec-card">
+            <div class="card-body text-center py-3">
+              <span class="text-primary"><i class="fas fa-bath fa-lg"></i></span>
+              <div class="small text-primary fw-semibold mt-1">Bathrooms</div>
+              <div class="fw-semibold">{% if page.bathrooms %}{{ page.bathrooms }}{% else %}-{% endif %}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="card border-0 rounded-3 shadow-sm h-100 estate-spec-card">
+            <div class="card-body text-center py-3">
+              <span class="text-primary"><i class="fas fa-ruler-combined fa-lg"></i></span>
+              <div class="small text-primary fw-semibold mt-1">Square Footage</div>
+              <div class="fw-semibold">{% if page.sqft %}{{ page.sqft }} sqft{% else %}-{% endif %}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="card border-0 rounded-3 shadow-sm h-100 estate-spec-card">
+            <div class="card-body text-center py-3">
+              <span class="text-primary"><i class="fas fa-car fa-lg"></i></span>
+              <div class="small text-primary fw-semibold mt-1">Parking</div>
+              <div class="fw-semibold">{% if page.parking_spaces is not None %}{{ page.parking_spaces }}{% else %}-{% endif %}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="card border-0 rounded-3 shadow-sm h-100 estate-spec-card">
+            <div class="card-body text-center py-3">
+              <span class="text-primary"><i class="fas fa-couch fa-lg"></i></span>
+              <div class="small text-primary fw-semibold mt-1">Reception Rooms</div>
+              <div class="fw-semibold">{% if page.reception_rooms is not None %}{{ page.reception_rooms }}{% else %}-{% endif %}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="card border-0 rounded-3 shadow-sm h-100 estate-spec-card">
+            <div class="card-body text-center py-3">
+              <span class="text-primary"><i class="fas fa-bolt fa-lg"></i></span>
+              <div class="small text-primary fw-semibold mt-1">Energy Rating</div>
+              <div class="fw-semibold">{{ page.energy_rating|default:"-" }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="card border-0 rounded-3 shadow-sm h-100 estate-spec-card">
+            <div class="card-body text-center py-3">
+              <span class="text-primary"><i class="fas fa-calendar-alt fa-lg"></i></span>
+              <div class="small text-primary fw-semibold mt-1">Build Year</div>
+              <div class="fw-semibold">{% if page.year %}{{ page.year }}{% else %}-{% endif %}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="card border-0 rounded-3 shadow-sm h-100 estate-spec-card">
+            <div class="card-body text-center py-3">
+              <span class="text-primary"><i class="fas fa-hammer fa-lg"></i></span>
+              <div class="small text-primary fw-semibold mt-1">Renovation Year</div>
+              <div class="fw-semibold">{% if page.refit_year %}{{ page.refit_year }}{% else %}-{% endif %}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="card border-0 rounded-3 shadow-sm h-100 estate-spec-card">
+            <div class="card-body text-center py-3">
+              <span class="text-primary"><i class="fas fa-leaf fa-lg"></i></span>
+              <div class="small text-primary fw-semibold mt-1">Outdoor Space</div>
+              <div class="fw-semibold">
+                {% if page.has_garden and page.has_balcony %}Garden &amp; Balcony
+                {% elif page.has_garden %}Garden
+                {% elif page.has_balcony %}Balcony
+                {% else %}-
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% if page.address %}
+      <div class="card border-0 rounded-3 shadow-sm mb-4 estate-panel">
+        <div class="card-body">
+          <div class="d-flex align-items-center gap-2">
+            <span class="text-body-secondary"><i class="fas fa-map-marker-alt fa-lg"></i></span>
+            <div>
+              <div class="small text-body-secondary">Location</div>
+              <div class="fw-semibold">{{ page.address }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      {% if page.body %}
+      <div class="mt-4">
+        {% for block in page.body %}
+          {% include_block block with settings=settings %}
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    {# Right column: Contact and form #}
+    <div class="col-lg-4">
+      {# Contact person card #}
+      <div class="card border-0 rounded-3 shadow-sm mb-4">
+        <div class="card-body">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="rounded-circle bg-dark d-flex align-items-center justify-content-center text-white flex-shrink-0" style="width: 56px; height: 56px;">
+              <i class="fas fa-user fa-lg"></i>
+            </div>
+            <div>
+              <div class="fw-bold">Contact</div>
+              <div class="small text-body-secondary">Sales</div>
+            </div>
+          </div>
+          <div class="d-flex flex-column gap-2">
+            {% if settings.website.CustomSetting.email_sender or settings.website.CustomSetting.owner_mail %}
+            <a href="mailto:{{ settings.website.CustomSetting.owner_mail|default:settings.website.CustomSetting.email_sender }}" class="btn btn-primary rounded-pill">
+              <i class="fas fa-envelope me-2"></i>Send email
+            </a>
+            {% endif %}
+            {% if page.tel %}
+            <a href="tel:{{ page.tel }}" class="btn btn-outline-secondary rounded-pill">
+              <i class="fas fa-phone me-2"></i>{{ page.tel }}
+            </a>
+            {% endif %}
+            {% if settings.website.CustomSetting.using_whatsapp and settings.website.CustomSetting.whatsapp_id %}
+            <a href="https://wa.me/{{ settings.website.CustomSetting.whatsapp_id }}" target="_blank" rel="noopener" class="btn btn-success rounded-pill">
+              <i class="fab fa-whatsapp me-2"></i>Contact with WhatsApp
+            </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      {# Inquiry form card #}
+      <div class="card border-0 rounded-3 shadow-sm estate-panel">
+        <div class="card-body">
+          <p class="text-body-secondary small mb-4">You are welcome to ask us anything regarding this property for sale. Our team of specialists are here to help.</p>
+          <form action="{% pageurl page %}" method="post" class="property-inquiry-form">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="id_name" class="form-label">Name</label>
+              <input type="text" name="name" id="id_name" class="form-control" placeholder="Name" required>
+            </div>
+            <div class="mb-3">
+              <label for="id_phone" class="form-label">Phone</label>
+              <input type="tel" name="phone" id="id_phone" class="form-control" placeholder="Phone">
+            </div>
+            <div class="mb-3">
+              <label for="id_email" class="form-label">Email</label>
+              <input type="email" name="email" id="id_email" class="form-control" placeholder="Email" required>
+            </div>
+            <div class="mb-4">
+              <label for="id_message" class="form-label">Message</label>
+              <textarea name="message" id="id_message" class="form-control" rows="4" placeholder="Message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 rounded-pill">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="py-4" id="property-gallery-section" style="display: none;">
+    <h2 class="h4 fw-bold mb-3">Gallery</h2>
+    <div class="row g-3" id="property-gallery"></div>
+    <div id="property-gallery-view-all-wrap" style="display: none;" class="mt-3">
+      <a href="#" id="property-gallery-view-all" class="btn btn-outline-primary">View all</a>
+    </div>
+    <div id="property-gallery-slider-wrap" style="display: none;" class="mt-4">
+      <div class="d-flex align-items-center justify-content-between mb-2">
+        <span class="text-body-secondary">All images</span>
+        <a href="#" id="property-gallery-hide-slider" class="btn btn-sm btn-outline-secondary">Hide</a>
+      </div>
+      <div class="property-gallery-slider-container position-relative">
+        <button type="button" class="property-gallery-slider-arrow prev" id="property-slider-prev" aria-label="Previous">&lsaquo;</button>
+        <div class="property-gallery-slider" id="property-gallery-slider"></div>
+        <button type="button" class="property-gallery-slider-arrow next" id="property-slider-next" aria-label="Next">&rsaquo;</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+{% endblock %}
+
+{% block content_post_body %}
+<style>
+#property-gallery-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000;
+  flex-direction: column;
+}
+#property-gallery-lightbox.is-open { display: flex; }
+.property-lightbox-top {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(0,0,0,0.5);
+}
+.property-lightbox-counter { color: #fff; font-size: 1rem; }
+.property-lightbox-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.property-lightbox-actions button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+.property-lightbox-actions button:hover { color: #ccc; }
+.property-lightbox-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding: 16px;
+  position: relative;
+}
+.property-lightbox-main img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+.property-lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.property-lightbox-arrow:hover { background: rgba(0,0,0,0.8); }
+.property-lightbox-arrow.prev { left: 16px; }
+.property-lightbox-arrow.next { right: 16px; }
+.property-lightbox-thumbs {
+  flex-shrink: 0;
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  overflow-x: auto;
+  justify-content: center;
+  background: rgba(0,0,0,0.5);
+}
+.property-lightbox-thumbs img {
+  width: 72px;
+  height: 54px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 4px;
+}
+.property-lightbox-thumbs img.active { border-color: #fff; }
+.property-lightbox-thumbs img:hover { opacity: 0.9; }
+
+.property-gallery-slider-container { position: relative; padding: 0 40px; }
+.property-gallery-slider {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  padding: 8px 0;
+}
+.property-gallery-slider .property-slider-item {
+  flex: 0 0 auto;
+  width: 160px;
+}
+.property-gallery-slider .property-slider-item a {
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.property-gallery-slider .property-slider-item img {
+  width: 160px;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+}
+.property-gallery-slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.6);
+  border: none;
+  color: #fff;
+  font-size: 1.25rem;
+  cursor: pointer;
+  z-index: 1;
+}
+.property-gallery-slider-arrow:hover { background: rgba(0,0,0,0.8); }
+.property-gallery-slider-arrow.prev { left: 0; }
+.property-gallery-slider-arrow.next { right: 0; }
+</style>
+<script>
+(function() {
+  var pageId = {{ page.pk|default:0 }};
+  if (!pageId) return;
+  var section = document.getElementById('property-gallery-section');
+  var container = document.getElementById('property-gallery');
+  if (!section || !container) return;
+
+  var galleryData = [];
+  var lightbox = null;
+  var currentIndex = 0;
+  var scale = 1;
+  var openLightboxFn = null;
+
+  function buildLightbox() {
+    if (lightbox) return lightbox;
+    var lb = document.createElement('div');
+    lb.id = 'property-gallery-lightbox';
+    lb.innerHTML =
+      '<div class="property-lightbox-top">' +
+        '<span class="property-lightbox-counter" id="property-lb-counter">1/' + galleryData.length + '</span>' +
+        '<div class="property-lightbox-actions">' +
+          '<button type="button" id="property-lb-zoom-in" title="Zoom in">&#128269;+</button>' +
+          '<button type="button" id="property-lb-zoom-out" title="Zoom out">&#128269;&minus;</button>' +
+          '<button type="button" id="property-lb-close" title="Close">&times;</button>' +
+        '</div>' +
+      '</div>' +
+      '<div class="property-lightbox-main">' +
+        '<button type="button" class="property-lightbox-arrow prev" id="property-lb-prev" aria-label="Previous">&lsaquo;</button>' +
+        '<img id="property-lb-img" src="" alt="">' +
+        '<button type="button" class="property-lightbox-arrow next" id="property-lb-next" aria-label="Next">&rsaquo;</button>' +
+      '</div>' +
+      '<div class="property-lightbox-thumbs" id="property-lb-thumbs"></div>';
+    document.body.appendChild(lb);
+    lightbox = lb;
+
+    var lbImg = document.getElementById('property-lb-img');
+    var counterEl = document.getElementById('property-lb-counter');
+    var thumbsEl = document.getElementById('property-lb-thumbs');
+
+    function showIndex(i) {
+      currentIndex = (i + galleryData.length) % galleryData.length;
+      var item = galleryData[currentIndex];
+      lbImg.src = item.url_full || item.url;
+      lbImg.alt = item.caption || '';
+      lbImg.style.transform = 'scale(' + scale + ')';
+      counterEl.textContent = (currentIndex + 1) + '/' + galleryData.length;
+      thumbsEl.querySelectorAll('img').forEach(function(thumb, idx) {
+        thumb.classList.toggle('active', idx === currentIndex);
+      });
+    }
+
+    openLightboxFn = function(index) {
+      currentIndex = index;
+      scale = 1;
+      showIndex(currentIndex);
+      lightbox.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    };
+
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('property-lb-close').onclick = closeLightbox;
+    document.getElementById('property-lb-prev').onclick = function() { showIndex(currentIndex - 1); };
+    document.getElementById('property-lb-next').onclick = function() { showIndex(currentIndex + 1); };
+    document.getElementById('property-lb-zoom-in').onclick = function() { scale = Math.min(3, scale + 0.25); lbImg.style.transform = 'scale(' + scale + ')'; };
+    document.getElementById('property-lb-zoom-out').onclick = function() { scale = Math.max(0.5, scale - 0.25); lbImg.style.transform = 'scale(' + scale + ')'; };
+
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox || e.target.classList.contains('property-lightbox-main')) closeLightbox();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (!lightbox.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showIndex(currentIndex - 1);
+      if (e.key === 'ArrowRight') showIndex(currentIndex + 1);
+    });
+
+    galleryData.forEach(function(item, idx) {
+      var thumb = document.createElement('img');
+      thumb.src = item.url;
+      thumb.alt = item.caption || '';
+      thumb.dataset.index = idx;
+      thumb.onclick = function() { showIndex(idx); };
+      thumbsEl.appendChild(thumb);
+    });
+    if (thumbsEl.querySelectorAll('img').length) thumbsEl.querySelectorAll('img')[0].classList.add('active');
+    return lightbox;
+  }
+
+  var GALLERY_PAGE_LIMIT = 8;
+  var viewAllWrap = document.getElementById('property-gallery-view-all-wrap');
+  var viewAllLink = document.getElementById('property-gallery-view-all');
+  var sliderWrap = document.getElementById('property-gallery-slider-wrap');
+  var sliderEl = document.getElementById('property-gallery-slider');
+  var hideSliderLink = document.getElementById('property-gallery-hide-slider');
+  var sliderPrevBtn = document.getElementById('property-slider-prev');
+  var sliderNextBtn = document.getElementById('property-slider-next');
+
+  function addGalleryItem(parent, item, idx) {
+    var col = document.createElement('div');
+    col.className = parent === container ? 'col-6 col-md-4 col-lg-3' : 'property-slider-item';
+    var a = document.createElement('a');
+    a.href = item.url;
+    a.setAttribute('data-index', idx);
+    a.className = 'd-block rounded-3 overflow-hidden shadow-sm property-gallery-item';
+    var img = document.createElement('img');
+    img.className = 'w-100 h-auto object-fit-cover';
+    img.src = item.url;
+    img.alt = item.caption || '{{ page.title|escapejs }}';
+    a.appendChild(img);
+    col.appendChild(a);
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      buildLightbox();
+      if (openLightboxFn) openLightboxFn(idx);
+    });
+    if (parent === container && item.caption) {
+      var p = document.createElement('p');
+      p.className = 'small text-body-secondary mt-1 mb-0';
+      p.textContent = item.caption;
+      col.appendChild(p);
+    }
+    parent.appendChild(col);
+  }
+
+  fetch('/api/v2/property-gallery/' + pageId + '/')
+    .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
+    .then(function(data) {
+      var gallery = data.gallery || [];
+      if (gallery.length === 0) return;
+      galleryData = gallery;
+      var showCount = Math.min(GALLERY_PAGE_LIMIT, gallery.length);
+      for (var i = 0; i < showCount; i++) {
+        addGalleryItem(container, gallery[i], i);
+      }
+      if (gallery.length > GALLERY_PAGE_LIMIT) {
+        viewAllWrap.style.display = 'block';
+        viewAllLink.textContent = 'View all (' + gallery.length + ' images)';
+      }
+      section.style.display = '';
+
+      if (viewAllLink) {
+        viewAllLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          if (sliderEl && sliderEl.children.length === 0) {
+            gallery.forEach(function(item, idx) {
+              addGalleryItem(sliderEl, item, idx);
+            });
+          }
+          if (sliderWrap) sliderWrap.style.display = 'block';
+          viewAllWrap.style.display = 'none';
+        });
+      }
+      if (hideSliderLink) {
+        hideSliderLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          if (sliderWrap) sliderWrap.style.display = 'none';
+          viewAllWrap.style.display = gallery.length > GALLERY_PAGE_LIMIT ? 'block' : 'none';
+        });
+      }
+      var scrollStep = 180;
+      if (sliderPrevBtn) {
+        sliderPrevBtn.addEventListener('click', function() {
+          if (sliderEl) sliderEl.scrollLeft = Math.max(0, sliderEl.scrollLeft - scrollStep);
+        });
+      }
+      if (sliderNextBtn) {
+        sliderNextBtn.addEventListener('click', function() {
+          if (sliderEl) sliderEl.scrollLeft = Math.min(sliderEl.scrollWidth - sliderEl.clientWidth, sliderEl.scrollLeft + scrollStep);
+        });
+      }
+    })
+    .catch(function() {});
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,114 @@
+{% extends "coderedcms/pages/web_page_notitle.html" %}
+{% load wagtailcore_tags %}
+
+{% block content_body %}
+<section class="estate-hero estate-hero--home">
+	<div class="container">
+		<div class="estate-hero__content">
+			<p class="estate-eyebrow">Estate Agents</p>
+			<h1>Properties and flats with character, curated for real life.</h1>
+			<p>Discover city apartments, family homes, and quiet coastal escapes with local experts guiding every step.</p>
+			<div class="d-flex flex-wrap gap-3 mt-4">
+				<a href="/en/properties/" class="btn btn-primary px-4">Browse Properties</a>
+				<a href="/en/contact/" class="btn btn-outline-light px-4">Request a Valuation</a>
+			</div>
+		</div>
+
+		<form method="GET" action="/en/properties/" class="estate-search">
+			<div class="row g-3 align-items-end">
+				<div class="col-md-4">
+					<label class="form-label small text-body-secondary">Location or keyword</label>
+					<input type="text" name="q" class="form-control" placeholder="Edinburgh, Leith, Stockbridge">
+				</div>
+				<div class="col-md-2">
+					<label class="form-label small text-body-secondary">Min Beds</label>
+					<input type="number" name="min_beds" class="form-control" placeholder="1">
+				</div>
+				<div class="col-md-2">
+					<label class="form-label small text-body-secondary">Min Price</label>
+					<input type="number" name="min_price" class="form-control" placeholder="250000">
+				</div>
+				<div class="col-md-2">
+					<label class="form-label small text-body-secondary">Max Price</label>
+					<input type="number" name="max_price" class="form-control" placeholder="750000">
+				</div>
+				<div class="col-md-2">
+					<label class="form-label small text-body-secondary">Type</label>
+					<select name="property_type" class="form-select">
+						<option value="">All Types</option>
+						<option value="house">House</option>
+						<option value="flat">Flat</option>
+						<option value="apartment">Apartment</option>
+					</select>
+				</div>
+				<div class="col-12">
+					<button type="submit" class="btn btn-primary w-100">Search Properties</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</section>
+
+<section class="estate-section">
+	<div class="container">
+		<div class="estate-section__head">
+			<div>
+				<h2 class="estate-section__title">Featured collections</h2>
+				<p class="estate-section__subtitle">Hand-picked homes across the city and beyond.</p>
+			</div>
+		</div>
+
+		<div class="row g-4">
+			<div class="col-md-4">
+				<div class="estate-feature">
+					<div class="estate-feature__image">
+						<img src="/media/original_images/large_4268557.jpg" alt="City apartments">
+					</div>
+					<div class="estate-feature__body">
+						<h3 class="h5 fw-bold">City Apartments</h3>
+						<p class="mb-0 text-body-secondary">Modern flats with walkable access to shops, parks, and transit.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="estate-feature">
+					<div class="estate-feature__image">
+						<img src="/media/original_images/large_4268635.jpg" alt="Family homes">
+					</div>
+					<div class="estate-feature__body">
+						<h3 class="h5 fw-bold">Family Homes</h3>
+						<p class="mb-0 text-body-secondary">Spacious properties near schools, gardens, and local amenities.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="estate-feature">
+					<div class="estate-feature__image">
+						<img src="/media/original_images/large_4670020.jpg" alt="Coastal retreats">
+					</div>
+					<div class="estate-feature__body">
+						<h3 class="h5 fw-bold">Coastal Retreats</h3>
+						<p class="mb-0 text-body-secondary">Quiet escapes with sea views, natural light, and calm surroundings.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="estate-cta">
+	<div class="container">
+		<div class="estate-cta__card">
+			<div class="row align-items-center">
+				<div class="col-lg-8">
+					<h2 class="h3 mb-2">Selling your property?</h2>
+					<p class="mb-0 text-white-50">Get a tailored valuation and a marketing plan that makes buyers move fast.</p>
+				</div>
+				<div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+					<a href="/en/contact/" class="btn btn-light">Speak with an Agent</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

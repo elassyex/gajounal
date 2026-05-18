@@ -1,0 +1,109 @@
+{% extends "coderedcms/pages/web_page.html" %}
+{% load wagtailcore_tags wagtailimages_tags static %}
+
+{% block content_pre_body %}
+<section class="estate-hero estate-hero--list" style="background: linear-gradient(120deg, rgba(11, 27, 30, 0.92), rgba(11, 27, 30, 0.45)), url('/media/original_images/large_4268634.jpg') center/cover no-repeat;">
+  <div class="container">
+    <div class="estate-hero__content" style="color: #fff;">
+      <p class="estate-eyebrow" style="color: #f5d4a4; text-transform: uppercase; letter-spacing: 0.28em; font-size: 0.75rem;">Estate Agents</p>
+      <h1 style="font-family: 'Fraunces', 'Times New Roman', serif; letter-spacing: -0.02em;">Find your next home with confidence.</h1>
+      <p style="color: rgba(255, 255, 255, 0.78);">Browse curated properties, flats, and apartments with clear pricing and local guidance.</p>
+    </div>
+
+    <form method="GET" action="/en/properties/" class="estate-search" style="background: rgba(255, 255, 255, 0.95); border-radius: 22px; padding: 18px 20px; border: 1px solid #e7dfd2; box-shadow: 0 24px 60px rgba(15, 23, 42, 0.15);">
+      <div class="row g-3 align-items-end">
+        <div class="col-md-4">
+          <label class="form-label small text-body-secondary">Search</label>
+          <input type="text" name="q" class="form-control" placeholder="Town, street, or title" value="{{ request.GET.q }}">
+        </div>
+        <div class="col-md-2">
+          <label class="form-label small text-body-secondary">Min Beds</label>
+          <input type="number" name="min_beds" class="form-control" placeholder="1" value="{{ request.GET.min_beds }}">
+        </div>
+        <div class="col-md-2">
+          <label class="form-label small text-body-secondary">Min Price</label>
+          <input type="number" name="min_price" class="form-control" placeholder="250000" value="{{ request.GET.min_price }}">
+        </div>
+        <div class="col-md-2">
+          <label class="form-label small text-body-secondary">Max Price</label>
+          <input type="number" name="max_price" class="form-control" placeholder="Any" value="{{ request.GET.max_price }}">
+        </div>
+        <div class="col-md-2">
+          <label class="form-label small text-body-secondary">Type</label>
+          <select name="property_type" class="form-select">
+            <option value="">All</option>
+            <option value="house" {% if request.GET.property_type == "house" %}selected{% endif %}>House</option>
+            <option value="flat" {% if request.GET.property_type == "flat" %}selected{% endif %}>Flat</option>
+            <option value="apartment" {% if request.GET.property_type == "apartment" %}selected{% endif %}>Apartment</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary w-100">Search Properties</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock %}
+
+{% block index_filters %}{% endblock %}
+
+{% block index_content %}
+<section class="estate-section">
+  <div class="container">
+    <div class="estate-section__head">
+      <div>
+        <h2 class="estate-section__title">Latest listings</h2>
+        <p class="estate-section__subtitle">Fresh homes added daily.</p>
+      </div>
+      <div>
+        {% if request.GET.q %}<span class="estate-chip">Search: "{{ request.GET.q }}"</span>{% endif %}
+        {% if request.GET.min_beds %}<span class="estate-chip">{{ request.GET.min_beds }}+ beds</span>{% endif %}
+        {% if request.GET.min_price %}<span class="estate-chip">Min £{{ request.GET.min_price }}</span>{% endif %}
+        {% if request.GET.max_price %}<span class="estate-chip">Max £{{ request.GET.max_price }}</span>{% endif %}
+        {% if request.GET.property_type %}<span class="estate-chip">{{ request.GET.property_type|title }}</span>{% endif %}
+      </div>
+    </div>
+
+    <div class="row g-4">
+      {% for property in index_paginated %}
+      {% with prop=property.specific %}
+      <div class="col-sm-6 col-lg-4">
+        <div class="estate-card" style="--i: {{ forloop.counter0 }};">
+          <a href="{% pageurl prop %}" class="text-decoration-none text-dark">
+            <div class="estate-card__media">
+              {% if prop.thumbnail and "yacht" not in prop.thumbnail.title|lower and "yacht" not in prop.thumbnail.file.name|lower %}
+                {% image prop.thumbnail fill-800x600 as thumb %}
+                <img src="{{ thumb.url }}" alt="{{ prop.title }}">
+              {% else %}
+                <img src="/media/original_images/large_4268557.jpg" alt="Property">
+              {% endif %}
+              {% if prop.property_type %}
+              <span class="estate-pill">{{ prop.property_type }}</span>
+              {% endif %}
+            </div>
+            <div class="estate-card__body">
+              <div class="estate-card__price">{% if prop.price %}£{{ prop.price|floatformat:0 }}{% else %}Price on request{% endif %}</div>
+              <h3 class="h5 fw-bold mb-2">{{ prop.title }}</h3>
+              <div class="estate-card__meta">
+                {% if prop.bedrooms %}{{ prop.bedrooms }} bed{% endif %}
+                {% if prop.bathrooms %}{% if prop.bedrooms %} · {% endif %}{{ prop.bathrooms }} bath{% endif %}
+                {% if prop.sqft %}{% if prop.bedrooms or prop.bathrooms %} · {% endif %}{{ prop.sqft }} sqft{% endif %}
+              </div>
+              {% if prop.address %}
+              <div class="estate-card__address">{{ prop.address }}</div>
+              {% endif %}
+            </div>
+          </a>
+        </div>
+      </div>
+      {% endwith %}
+      {% empty %}
+      <div class="col-12 text-center py-5 text-muted">No properties found.</div>
+      {% endfor %}
+    </div>
+
+    {% include "coderedcms/includes/pagination.html" with items=index_paginated %}
+  </div>
+</section>
+{% endblock %}
