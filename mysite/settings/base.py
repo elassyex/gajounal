@@ -156,7 +156,7 @@ WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [("en", "English"), ("ar", "Arabic"), ("
 TIME_ZONE = "America/New_York"
 
 USE_I18N = True
-WAGTAIL_I18N_ENABLED = True
+WAGTAIL_I18N_ENABLED = False
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)

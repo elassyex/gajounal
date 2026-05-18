@@ -1,5 +1,12 @@
 [
   {
+    "model": "wagtailcore.locale",
+    "pk": 1,
+    "fields": {
+      "language_code": "en"
+    }
+  },
+  {
     "model": "website.formpagefield",
     "pk": 1,
     "fields": {
@@ -1321,7 +1328,8 @@
       "first_published_at": null,
       "last_published_at": null,
       "latest_revision_created_at": null,
-      "live_revision": null
+      "live_revision": null,
+      "locale": 1
     }
   },
   {
@@ -1354,7 +1362,8 @@
       "first_published_at": "2020-09-02T19:06:49.128Z",
       "last_published_at": "2020-09-28T11:46:41.613Z",
       "latest_revision_created_at": "2020-09-28T11:46:41.482Z",
-      "live_revision": 96
+      "live_revision": 96,
+      "locale": 1
     }
   },
   {
@@ -1389,7 +1398,8 @@
       "first_published_at": "2020-09-03T14:42:17.667Z",
       "last_published_at": "2020-09-03T16:03:30.371Z",
       "latest_revision_created_at": "2020-09-03T16:03:29.899Z",
-      "live_revision": 30
+      "live_revision": 30,
+      "locale": 1
     }
   },
   {
@@ -1424,7 +1434,8 @@
       "first_published_at": "2020-09-03T15:01:02.949Z",
       "last_published_at": "2020-09-03T18:27:28.910Z",
       "latest_revision_created_at": "2020-09-03T18:27:28.861Z",
-      "live_revision": 34
+      "live_revision": 34,
+      "locale": 1
     }
   },
   {
@@ -1459,7 +1470,8 @@
       "first_published_at": "2020-09-03T15:08:38.322Z",
       "last_published_at": "2020-09-03T18:28:10.188Z",
       "latest_revision_created_at": "2020-09-03T18:28:10.142Z",
-      "live_revision": 36
+      "live_revision": 36,
+      "locale": 1
     }
   },
   {
@@ -1494,7 +1506,8 @@
       "first_published_at": "2020-09-03T15:09:07.951Z",
       "last_published_at": "2020-09-03T18:27:58.375Z",
       "latest_revision_created_at": "2020-09-03T18:27:58.335Z",
-      "live_revision": 35
+      "live_revision": 35,
+      "locale": 1
     }
   },
   {
@@ -1529,7 +1542,8 @@
       "first_published_at": "2020-09-03T17:02:20.677Z",
       "last_published_at": "2020-09-03T17:51:52.995Z",
       "latest_revision_created_at": "2020-09-03T17:51:52.949Z",
-      "live_revision": 33
+      "live_revision": 33,
+      "locale": 1
     }
   },
   {
@@ -1564,7 +1578,8 @@
       "first_published_at": "2020-09-03T19:12:22.293Z",
       "last_published_at": "2020-09-03T19:12:22.293Z",
       "latest_revision_created_at": "2020-09-03T19:12:22.247Z",
-      "live_revision": 39
+      "live_revision": 39,
+      "locale": 1
     }
   },
   {
@@ -1599,7 +1614,8 @@
       "first_published_at": "2020-09-03T19:56:56.830Z",
       "last_published_at": "2020-09-23T14:29:18.128Z",
       "latest_revision_created_at": "2020-09-23T14:29:17.973Z",
-      "live_revision": 84
+      "live_revision": 84,
+      "locale": 1
     }
   },
   {
@@ -1634,7 +1650,8 @@
       "first_published_at": "2020-09-03T20:01:33.887Z",
       "last_published_at": "2020-09-03T20:01:33.887Z",
       "latest_revision_created_at": "2020-09-03T20:01:33.887Z",
-      "live_revision": 42
+      "live_revision": 42,
+      "locale": 1
     }
   },
   {
@@ -1669,7 +1686,8 @@
       "first_published_at": "2020-09-03T20:02:03.710Z",
       "last_published_at": "2020-09-03T20:02:03.710Z",
       "latest_revision_created_at": "2020-09-03T20:02:03.710Z",
-      "live_revision": 45
+      "live_revision": 45,
+      "locale": 1
     }
   },
   {
@@ -1704,7 +1722,8 @@
       "first_published_at": "2020-09-03T20:05:17.406Z",
       "last_published_at": "2020-09-03T20:05:17.406Z",
       "latest_revision_created_at": "2020-09-03T20:05:17.357Z",
-      "live_revision": 46
+      "live_revision": 46,
+      "locale": 1
     }
   },
   {
@@ -1739,7 +1758,8 @@
       "first_published_at": "2020-09-04T14:49:37.302Z",
       "last_published_at": "2020-09-14T16:20:07.808Z",
       "latest_revision_created_at": "2020-09-14T16:20:07.659Z",
-      "live_revision": 81
+      "live_revision": 81,
+      "locale": 1
     }
   },
   {
@@ -1774,7 +1794,8 @@
       "first_published_at": "2020-09-09T17:01:22.503Z",
       "last_published_at": "2020-09-09T18:56:48.642Z",
       "latest_revision_created_at": "2020-09-09T18:56:48.589Z",
-      "live_revision": 66
+      "live_revision": 66,
+      "locale": 1
     }
   },
   {
@@ -1809,7 +1830,8 @@
       "first_published_at": "2020-09-09T17:06:16.045Z",
       "last_published_at": "2020-09-09T18:29:29.761Z",
       "latest_revision_created_at": "2020-09-09T18:29:29.708Z",
-      "live_revision": 62
+      "live_revision": 62,
+      "locale": 1
     }
   },
   {
@@ -1844,7 +1866,8 @@
       "first_published_at": "2020-09-09T18:57:52.297Z",
       "last_published_at": "2020-09-09T18:59:09.434Z",
       "latest_revision_created_at": "2020-09-09T18:59:09.403Z",
-      "live_revision": 72
+      "live_revision": 72,
+      "locale": 1
     }
   },
   {
@@ -1879,7 +1902,8 @@
       "first_published_at": "2020-09-09T19:01:23.079Z",
       "last_published_at": "2020-09-09T19:01:41.911Z",
       "latest_revision_created_at": "2020-09-09T19:01:41.880Z",
-      "live_revision": 80
+      "live_revision": 80,
+      "locale": 1
     }
   },
   {
@@ -1914,7 +1938,8 @@
       "first_published_at": "2020-09-28T11:12:19.332Z",
       "last_published_at": "2020-09-28T11:16:06.893Z",
       "latest_revision_created_at": "2020-09-28T11:16:06.656Z",
-      "live_revision": 88
+      "live_revision": 88,
+      "locale": 1
     }
   },
   {
@@ -1949,7 +1974,8 @@
       "first_published_at": "2020-09-28T11:18:39.795Z",
       "last_published_at": "2020-09-28T11:18:39.795Z",
       "latest_revision_created_at": "2020-09-28T11:18:39.707Z",
-      "live_revision": 89
+      "live_revision": 89,
+      "locale": 1
     }
   },
   {
@@ -1984,7 +2010,8 @@
       "first_published_at": "2020-09-28T11:22:05.193Z",
       "last_published_at": "2020-09-28T11:22:05.193Z",
       "latest_revision_created_at": "2020-09-28T11:22:05.063Z",
-      "live_revision": 90
+      "live_revision": 90,
+      "locale": 1
     }
   },
   {
@@ -2019,7 +2046,8 @@
       "first_published_at": "2020-09-28T11:28:30.395Z",
       "last_published_at": "2020-09-28T11:28:30.395Z",
       "latest_revision_created_at": "2020-09-28T11:28:30.294Z",
-      "live_revision": 91
+      "live_revision": 91,
+      "locale": 1
     }
   },
   {
@@ -2054,7 +2082,8 @@
       "first_published_at": "2020-09-28T11:37:42.770Z",
       "last_published_at": "2020-09-28T11:41:41.759Z",
       "latest_revision_created_at": "2020-09-28T11:41:41.624Z",
-      "live_revision": 95
+      "live_revision": 95,
+      "locale": 1
     }
   },
   {
