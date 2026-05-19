@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     "wagtailseo",
     # Wagtail
     "wagtail.search",
+    "wagtail_localize",
+    "wagtail_localize.locales",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",
@@ -84,7 +86,7 @@ MIDDLEWARE = [
     #  Error reporting. Uncomment this to receive emails when a 404 is triggered.
     # 'django.middleware.common.BrokenLinkEmailsMiddleware',
     # locale middleware
-    # "django.middleware.locale.LocaleMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     # CMS functionality
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
     # Fetch from cache. Must be LAST.
@@ -107,6 +109,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "wagtail.contrib.settings.context_processors.settings",
+                "django.template.context_processors.i18n"
             ],
         },
     },
@@ -148,12 +151,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # To add or change language of the project, modify the list below.
 LANGUAGE_CODE = "en"
 
-WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [("en", "English")]
+WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [("en", "English"), ("ar", "Arabic"), ("tr", "Turkish")]
 
 TIME_ZONE = "America/New_York"
 
 USE_I18N = True
-WAGTAIL_I18N_ENABLED = False
+WAGTAIL_I18N_ENABLED = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)

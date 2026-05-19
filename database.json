@@ -2993,5 +2993,19 @@
       "author_display": "Betty Baker",
       "date_display": "2020-09-03"
     }
+  },
+  {
+    "model": "wagtailcore.locale",
+    "pk": 65,
+    "fields": {
+      "language_code": "ar"
+    }
+  },
+  {
+    "model": "wagtailcore.locale",
+    "pk": 66,
+    "fields": {
+      "language_code": "tr"
+    }
   }
 ]
