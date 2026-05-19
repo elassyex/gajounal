@@ -1147,7 +1147,7 @@
       "hostname": "localhost",
       "port": 80,
       "site_name": "Simple Sweet Desserts",
-      "root_page": 3,
+      "root_page": 1,
       "is_default_site": true
     }
   },
