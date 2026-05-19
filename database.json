@@ -2949,11 +2949,7 @@
     "pk": 4,
     "fields": {
       "coderedpage_ptr": 4,
-      "body": "[{\"type\": \"row\", \"value\": {\"settings\": {\"custom_template\": \"\", \"custom_css_class\": \"\", \"custom_id\": \"\"}, \"fluid\": false, \"content\": [{\"type\": \"content\", \"value\": {\"settings\": {\"custom_template\": \"\", \"custom_css_class\": \"\", \"custom_id\": \"\", \"column_breakpoint\": \"md\"}, \"column_size\": \"12\", \"content\": [{\"type\": \"text\", \"value\": \"<h2>About Our Blog</h2><p></p><p>Powder drag\\u00e9e caramels pudding. Cotton candy bear claw muffin sweet roll. Cake caramels donut dessert carrot cake.</p><p>Danish icing wafer pudding lemon drops cake oat cake pastry candy. Macaroon gingerbread cookie cheesecake. Sweet jelly-o chocolate cake powder.</p><p>Chocolate cake apple pie pastry pastry chocolate cake. Bear claw jujubes danish wafer caramels chocolate cake. Lemon drops cake gummi bears oat cake croissant brownie cake jelly-o chocolate bar.</p>\", \"id\": \"99b5715d-2e28-4d47-9518-348b8f5e8c7c\"}]}, \"id\": \"ad8e2b45-1f1b-46bd-a210-58efba613150\"}]}, \"id\": \"97a77cdd-a044-4ad5-a871-fe6de53475aa\"}]",
-      "show_images": true,
-      "show_captions": true,
-      "show_meta": true,
-      "show_preview_text": true
+      "body": "[{\"type\": \"row\", \"value\": {\"settings\": {\"custom_template\": \"\", \"custom_css_class\": \"\", \"custom_id\": \"\"}, \"fluid\": false, \"content\": [{\"type\": \"content\", \"value\": {\"settings\": {\"custom_template\": \"\", \"custom_css_class\": \"\", \"custom_id\": \"\", \"column_breakpoint\": \"md\"}, \"column_size\": \"12\", \"content\": [{\"type\": \"text\", \"value\": \"<h2>About Our Blog</h2><p></p><p>Powder drag\\u00e9e caramels pudding. Cotton candy bear claw muffin sweet roll. Cake caramels donut dessert carrot cake.</p><p>Danish icing wafer pudding lemon drops cake oat cake pastry candy. Macaroon gingerbread cookie cheesecake. Sweet jelly-o chocolate cake powder.</p><p>Chocolate cake apple pie pastry pastry chocolate cake. Bear claw jujubes danish wafer caramels chocolate cake. Lemon drops cake gummi bears oat cake croissant brownie cake jelly-o chocolate bar.</p>\", \"id\": \"99b5715d-2e28-4d47-9518-348b8f5e8c7c\"}]}, \"id\": \"ad8e2b45-1f1b-46bd-a210-58efba613150\"}]}, \"id\": \"97a77cdd-a044-4ad5-a871-fe6de53475aa\"}]"
     }
   },
   {
