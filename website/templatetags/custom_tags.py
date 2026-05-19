@@ -1,6 +1,7 @@
 import json
 
 from django import template
+from django.conf import settings
 
 from website.models import CustomSetting, TranslateNavbar, FormPage, LocationMarker
 from website.serializers import LocationMarkerSerializer
@@ -12,7 +13,7 @@ register = template.Library()
 def get_navbartrans(context) -> "QuerySet[Navbar]":
     layout: CustomSetting = CustomSetting.for_request(context["request"])
     navbarorderables = layout.site_navbartrans.all()
-    language_code = context.request.LANGUAGE_CODE
+    language_code = getattr(context.request, 'LANGUAGE_CODE', settings.LANGUAGE_CODE)
     navbars = TranslateNavbar.objects.filter(
         transnavbarorderable__in=navbarorderables
     ).order_by("transnavbarorderable__sort_order")
