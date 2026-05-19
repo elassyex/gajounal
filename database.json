@@ -3240,8 +3240,7 @@
       "site": 1,
       "redirect_page": 3,
       "redirect_link": "",
-      "is_permanent": true,
-      "redirect_page_route_paths": ""
+      "is_permanent": true
     }
   }
 ]
