@@ -1338,7 +1338,7 @@
     "fields": {
       "path": "00010001",
       "depth": 2,
-      "numchild": 11,
+      "numchild": 12,
       "title": "Home",
       "draft_title": "Home",
       "slug": "home",
@@ -3006,6 +3006,234 @@
     "pk": 66,
     "fields": {
       "language_code": "tr"
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 68,
+    "fields": {
+      "path": "00010001000C",
+      "depth": 3,
+      "numchild": 2,
+      "title": "Properties",
+      "draft_title": "Properties",
+      "slug": "properties",
+      "content_type": [
+        "website",
+        "propertyindexpage"
+      ],
+      "live": true,
+      "has_unpublished_changes": false,
+      "url_path": "/home/properties/",
+      "owner": [
+        "admin"
+      ],
+      "seo_title": "",
+      "show_in_menus": true,
+      "search_description": "",
+      "go_live_at": null,
+      "expire_at": null,
+      "expired": false,
+      "locked": false,
+      "locked_at": null,
+      "locked_by": null,
+      "first_published_at": null,
+      "last_published_at": null,
+      "latest_revision_created_at": null,
+      "live_revision": null,
+      "locale": 1
+    }
+  },
+  {
+    "model": "coderedcms.coderedpage",
+    "pk": 68,
+    "fields": {
+      "page_ptr": 68,
+      "cover_image": null,
+      "index_show_subpages": true,
+      "index_order_by": "",
+      "index_num_per_page": 10,
+      "custom_template": "",
+      "og_image": null,
+      "content_walls": "[]",
+      "index_classifiers": [],
+      "classifier_terms": []
+    }
+  },
+  {
+    "model": "website.propertyindexpage",
+    "pk": 68,
+    "fields": {
+      "coderedpage_ptr": 68,
+      "body": "[]"
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 69,
+    "fields": {
+      "path": "00010001000C0001",
+      "depth": 4,
+      "numchild": 0,
+      "title": "Modern City Apartment",
+      "draft_title": "Modern City Apartment",
+      "slug": "modern-city-apartment",
+      "content_type": [
+        "website",
+        "propertypage"
+      ],
+      "live": true,
+      "has_unpublished_changes": false,
+      "url_path": "/home/properties/modern-city-apartment/",
+      "owner": [
+        "admin"
+      ],
+      "seo_title": "",
+      "show_in_menus": true,
+      "search_description": "",
+      "go_live_at": null,
+      "expire_at": null,
+      "expired": false,
+      "locked": false,
+      "locked_at": null,
+      "locked_by": null,
+      "first_published_at": null,
+      "last_published_at": null,
+      "latest_revision_created_at": null,
+      "live_revision": null,
+      "locale": 1
+    }
+  },
+  {
+    "model": "coderedcms.coderedpage",
+    "pk": 69,
+    "fields": {
+      "page_ptr": 69,
+      "cover_image": null,
+      "index_show_subpages": false,
+      "index_order_by": "",
+      "index_num_per_page": 10,
+      "custom_template": "",
+      "og_image": null,
+      "content_walls": "[]",
+      "index_classifiers": [],
+      "classifier_terms": []
+    }
+  },
+  {
+    "model": "website.propertypage",
+    "pk": 69,
+    "fields": {
+      "coderedpage_ptr": 69,
+      "body": "[]",
+      "address": "42 George Street, Edinburgh EH2 2LE",
+      "tel": "",
+      "thumbnail": null,
+      "bedrooms": 2,
+      "property_type": "flat",
+      "price": "325000",
+      "bathrooms": 1,
+      "sqft": 850,
+      "parking_spaces": null,
+      "has_garden": false,
+      "has_balcony": false,
+      "energy_rating": "",
+      "year": null,
+      "refit_year": null,
+      "reception_rooms": null,
+      "is_sold": false,
+      "sold_time": null,
+      "is_feature": true,
+      "search_image": null,
+      "show_in_search": true,
+      "locale": 1,
+      "translation_key": "00000000-0000-0000-0000-000000000069",
+      "latest_revision": null,
+      "live_revision": null
+    }
+  },
+  {
+    "model": "wagtailcore.page",
+    "pk": 70,
+    "fields": {
+      "path": "00010001000C0002",
+      "depth": 4,
+      "numchild": 0,
+      "title": "Spacious Family Home",
+      "draft_title": "Spacious Family Home",
+      "slug": "spacious-family-home",
+      "content_type": [
+        "website",
+        "propertypage"
+      ],
+      "live": true,
+      "has_unpublished_changes": false,
+      "url_path": "/home/properties/spacious-family-home/",
+      "owner": [
+        "admin"
+      ],
+      "seo_title": "",
+      "show_in_menus": true,
+      "search_description": "",
+      "go_live_at": null,
+      "expire_at": null,
+      "expired": false,
+      "locked": false,
+      "locked_at": null,
+      "locked_by": null,
+      "first_published_at": null,
+      "last_published_at": null,
+      "latest_revision_created_at": null,
+      "live_revision": null,
+      "locale": 1
+    }
+  },
+  {
+    "model": "coderedcms.coderedpage",
+    "pk": 70,
+    "fields": {
+      "page_ptr": 70,
+      "cover_image": null,
+      "index_show_subpages": false,
+      "index_order_by": "",
+      "index_num_per_page": 10,
+      "custom_template": "",
+      "og_image": null,
+      "content_walls": "[]",
+      "index_classifiers": [],
+      "classifier_terms": []
+    }
+  },
+  {
+    "model": "website.propertypage",
+    "pk": 70,
+    "fields": {
+      "coderedpage_ptr": 70,
+      "body": "[]",
+      "address": "15 Inverleith Row, Edinburgh EH3 5LP",
+      "tel": "",
+      "thumbnail": null,
+      "bedrooms": 4,
+      "property_type": "house",
+      "price": "550000",
+      "bathrooms": 2,
+      "sqft": 1500,
+      "parking_spaces": null,
+      "has_garden": true,
+      "has_balcony": false,
+      "energy_rating": "",
+      "year": null,
+      "refit_year": null,
+      "reception_rooms": null,
+      "is_sold": false,
+      "sold_time": null,
+      "is_feature": true,
+      "search_image": null,
+      "show_in_search": true,
+      "locale": 1,
+      "translation_key": "00000000-0000-0000-0000-000000000070",
+      "latest_revision": null,
+      "live_revision": null
     }
   }
 ]
