@@ -1147,7 +1147,7 @@
       "hostname": "localhost",
       "port": 80,
       "site_name": "Simple Sweet Desserts",
-      "root_page": 1,
+      "root_page": 3,
       "is_default_site": true
     }
   },
@@ -3230,6 +3230,18 @@
       "translation_key": "00000000-0000-0000-0000-000000000070",
       "latest_revision": null,
       "live_revision": null
+    }
+  },
+  {
+    "model": "wagtailredirects.redirect",
+    "pk": 71,
+    "fields": {
+      "old_path": "home/",
+      "site": 1,
+      "redirect_page": 3,
+      "redirect_link": "",
+      "is_permanent": true,
+      "redirect_page_route_paths": ""
     }
   }
 ]
